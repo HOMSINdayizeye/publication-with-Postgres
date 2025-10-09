@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>
+        {% for book in books %}
+
+            <li type="1" style="color: cadetblue; font-family: Arial,
+             Helvetica, sans-serif;">{{ book.Book_name }} by {{ book.Author_name }}</li>
+             <form action="{% url 'delete_book' book.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+             </form>
+        {% empty %}
+            <li>No books available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
