@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SecPubApp</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"></head>
+
+<body>
+    <header>
+        <h1>Welcome to SecPubApp</h1>
+        <nav>
+            <ul>
+            </ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section>
+            <h2>Latest Publications</h2>
+            <div class="publications">
+                {% for publication in publications %}
+                <article class="publication">
+                    <h3>{{ publication.title }}</h3>
+                    <p>{{ publication.summary }}</p>
+                    <a href="{% url 'publication_detail' publication.id %}">Read More</a>
+                </article>
+                {% empty %}
+                <p>No publications available at the moment.</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>About SecPubApp</h2>
+            <p>SecPubApp is a platform dedicated to sharing secure and reliable publications
+                 on various topics. Our mission is to provide users with access 
+                 to high-quality content while ensuring their privacy and security.</p>
+        </section>
+    </main>
+    <form action="" method="post">
+        {% csrf_token %}
+    <label for="Username">Username</label>
+    <input type="email" type="text" placeholder="User_Email" required>
+    <label for="password">Password</label>
+    <input type="password" placeholder="Enter Password" required>
+    <button type="submit">Login</button>
+    </form>
+    <footer>
+        <p>&copy; 2024 SecPubApp. All rights reserved. by Amos</p>
+    </footer>
+
+
+</html>
