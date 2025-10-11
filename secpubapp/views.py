@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth import authenticate, login
 from.models import Book
 from.forms import FormBook
 
@@ -22,3 +23,14 @@ def delete_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.delete()
     return redirect('book_list')
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect('add_book')
+        else:
+            return render(request, 'home.html', {'error': 'Invalid username or password'})
+    return render(request, 'home.html')
