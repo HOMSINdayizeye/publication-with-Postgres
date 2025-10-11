@@ -1,36 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - SecPubApp</title>
+    <link rel="stylesheet" href="{% static 'secpubapp/style2.css' %}">
+</head>
 <body>
     <header>
         <h1>Welcome to SecPubApp</h1>
-    
     </header>
-
-
     <main>
-     
+        <div class="login-card">
+            <h2>Login</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="email" name="username" placeholder="User Email" required>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+{% if request.session.username %}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    alert("Login successful. You are logged in as {{ request.session.username }}.");
+  });
+</script>
+{% endif %}
+        <section>
             <h2>About SecPubApp</h2>
             <p>SecPubApp is a platform dedicated to sharing secure and reliable publications
-                 on various topics. Our mission is to provide users with access 
-                 to high-quality content while ensuring their privacy and security.</p>
+                on various topics. Our mission is to provide users with access 
+                to high-quality content while ensuring their privacy and security.</p>
         </section>
     </main>
-    <form action="" method="post">
-        {% csrf_token %}
-    <!-- <label for="Username">Username</label> -->
-    <input type="email", name="username" placeholder="User_Email" required>
-    <!-- <label for="password">Password</label> -->
-    <input type="password", name="password" placeholder="Enter Password" required>
-    <button type="submit">Login</button>
-    </form>
     <footer>
         <p>&copy; 2025 SecPubApp. All rights reserved. by Amos</p>
     </footer>
-
-
+</body>
 </html>

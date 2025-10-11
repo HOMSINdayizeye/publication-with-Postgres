@@ -3,21 +3,27 @@
 <html>
 <head>
     <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'secpubapp/liststyle.css' %}">
 </head>
 <body>
-    <h1>Books</h1>
-    <ul>
-        {% for book in books %}
-
-            <li type="1" style="color: cadetblue; font-family: Arial,
-             Helvetica, sans-serif;">{{ book.Book_name }} by {{ book.Author_name }}</li>
-             <form action="{% url 'delete_book' book.pk %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Delete</button>
-             </form>
-        {% empty %}
-            <li>No books available.</li>
-        {% endfor %}
-    </ul>
+    <div class="book-list-container">
+        <h1>Books</h1>
+        <ul class="book-list">
+            {% for book in books %}
+                <li>
+                    <span>
+                        <strong>{{ book.Book_name }}</strong> by {{ book.Author_name }}<br>
+                        <em>{{ book.Description }}</em> ({{ book.Publication_year }})
+                    </span>
+                    <form action="{% url 'delete_book' book.pk %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+            {% empty %}
+                <li>No books available.</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

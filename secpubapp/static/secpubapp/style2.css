@@ -1,0 +1,51 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url("/static/secpubapp/background.png");
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+body p{
+   color: #000 !important; 
+}
+.login-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    max-width: 350px;
+    margin: 80px auto;
+    padding: 32px 24px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.login-card input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.login-card button {
+    width: 95%;
+    padding: 10px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+header, main, footer {
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+footer {
+    color: #000 !important;
+    text-shadow: none;
+    text-align: center;
+}
