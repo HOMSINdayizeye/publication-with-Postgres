@@ -21,8 +21,9 @@
                 <button type="submit">Login</button>
             </form>
         </div>
-{% if request.session.username %}
+        {% if request.session.username %}
 <script>
+    
   document.addEventListener("DOMContentLoaded", function() {
     alert("Login successful. You are logged in as {{ request.session.username }}.");
   });
