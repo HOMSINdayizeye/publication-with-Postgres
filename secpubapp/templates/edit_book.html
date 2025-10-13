@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = en>
+<meta charset="UTF-8">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+<body>
+    <main>
+
+        <form method=" POST" class="Edit">
+          {%csrf_token %}
+          {{form.as_p}}
+          <button type="submit">Save</button>
+
+        </form>
+    </main>
+   <section class="nav">
+    <a href=" { % url 'add_book'} ">Add Book</a>
+    <a href=" { % url 'book_list'} ">Book List</a>
+    <a href=" { % url 'logout_user'} ">Logout</a>
+    <a href=" { % url 'login_user'} ">Login</a>
+    <a href=" { % url 'register_user'} ">Register</a>
+    <a href=" { % url 'home'} ">Home</a>
+    <a href=" { % url 'about'} ">About</a>
+    <a href=" { % url 'contact'} ">Contact</a>
+    <a href=" { % url 'profile'} ">Profile</a>
+    <a href=" { % url 'edit_book'} ">Edit Book</a>
+    <a href=" { % url 'delete_book'} ">Delete Book</a>
+    <a href=" { % url 'search_books'} ">Search Books</a>
+    <a href=" { % url 'change_password'} ">Change Password</a>
+    <a href=" { % url 'reset_password'} ">Reset Password</a>
+   </section>
+        <p>Copyright 2025 Done by Amos NDAYIZEYE</p>
+    </section>
+</body>
+
+</html>

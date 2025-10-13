@@ -9,5 +9,5 @@ class Book(models.Model):
       Publication_year = models.PositiveBigIntegerField()
 
       def __str__(self):
-        return super().__str__()
+        return self.Book_name
     

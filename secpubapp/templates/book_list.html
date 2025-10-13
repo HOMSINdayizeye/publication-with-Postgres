@@ -19,6 +19,10 @@
                         {% csrf_token %}
                         <button type="submit" class="delete-btn">Delete</button>
                     </form>
+                    <form action="{% url 'edit_book' book.pk %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type = "submit" class="edit_button">Edit</button>
+                    </form>
                 </li>
             {% empty %}
                 <li>No books available.</li>
