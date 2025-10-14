@@ -24,16 +24,15 @@ def delete_book(request, pk):
     book.delete()
     return redirect('book_list')
 def edit_book(request, pk):
-    book= get_object_or_404(Book, pk=pk)
-    if request.method =="POST":
-     form = FormBook(request.POST, instance=book)
-    if form.is_valid():
-         form.save()
-         #books =Book.objects.all()
-         return render('book_list')
+    book = get_object_or_404(Book, pk=pk)
+    if request.method == "POST":
+        form = FormBook(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')
     else:
-       form = FormBook(instance=Book)
-    return render(request, 'edit_book.html', {'form':form})
+        form = FormBook(instance=book)
+    return render(request, 'edit_book.html', {'form': form})
      
 def login_user(request):
     if request.method == 'POST':
