@@ -8,6 +8,8 @@ class Book(models.Model):
       Description = models.TextField()
       Publication_year = models.PositiveBigIntegerField()
 
-      def __str__(self):
-        return self.Book_name
+    
+def __str__self():
+      return __str__self.bookname
+
     

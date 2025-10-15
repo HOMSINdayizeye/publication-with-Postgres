@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from.models import Book
 from.forms import FormBook
 
@@ -31,7 +31,7 @@ def edit_book(request, pk):
             form.save()
             return redirect('book_list')
     else:
-        form = FormBook(instance=book)
+        form = FormBook(request.POST, instance=book)  # This line is critical!
     return render(request, 'edit_book.html', {'form': form})
      
 def login_user(request):
@@ -45,3 +45,6 @@ def login_user(request):
         else:
             return render(request, 'home.html', {'error': 'Invalid username or password'})
     return render(request, 'home.html')
+def logout_user(request):
+    logout(request)
+    return redirect('login')
