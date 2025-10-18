@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from.models import Book
 from.forms import FormBook
+from django.contrib.auth.models import User
 
 
 # Create your views here
@@ -45,6 +46,13 @@ def login_user(request):
         else:
             return render(request, 'home.html', {'error': 'Invalid username or password'})
     return render(request, 'home.html')
+def create_user(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        User.objects.create_user(username=username, password=password)
+        return redirect('login')
+    return render(request, 'create_user.html')
 def logout_user(request):
     logout(request)
     return redirect('login')
