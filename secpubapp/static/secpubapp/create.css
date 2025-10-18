@@ -19,7 +19,7 @@ body {
     text-align: center;
 }
 .create-card input{
-    border-radius: 12;
+    border-radius: 12px;
     border: 2px solid #fff;
     padding: 10px;
     margin: 10px 0;
