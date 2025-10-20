@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'secpubapp/style.css' %}">
 </head>
 <body>
-     <section class="nav">
+     <nav class="link">
             <a href="{% url 'add_book' %}">Add Book</a>
             <a href="{% url 'book_list' %}">Book List</a>
             <a href="#">Login</a>
@@ -18,9 +18,9 @@
             <a href="#">Delete Book</a>
             <a href="#">Search Books</a>
             <a href="#">Reset Password</a>
-        </section>
+     </nav>
     <h1>Add Book</h1>
-    <form method="post">
+    <form method="post" class="form-card">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add Book</button>
