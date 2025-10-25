@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from.models import Book
 from.forms import FormBook
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
+from .forms import CustomUserCreationForm
 
 
 # Create your views here
@@ -32,7 +33,7 @@ def edit_book(request, pk):
             form.save()
             return redirect('book_list')
     else:
-        form = FormBook(request.POST, instance=book)  # This line is critical!
+        form = FormBook(instance=book)  # This line is critical!
     return render(request, 'edit_book.html', {'form': form})
      
 def login_user(request):
@@ -48,9 +49,12 @@ def login_user(request):
     return render(request, 'home.html')
 def create_user(request):
     if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         username = request.POST['username']
         password = request.POST['password']
-        User.objects.create_user(username=username, password=password)
+        User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name)
+        form = CustomUserCreationForm()
         return redirect('login')
     return render(request, 'create_user.html')
 def logout_user(request):

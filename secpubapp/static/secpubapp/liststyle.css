@@ -40,3 +40,9 @@
     cursor: pointer;
     margin-left: 16px;
 }
+.link {
+  background-color: rgba(0, 0, 0, 1);
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+}

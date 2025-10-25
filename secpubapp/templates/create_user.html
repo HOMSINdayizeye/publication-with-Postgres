@@ -15,8 +15,9 @@
             <div class =create-card>
            <form action="" meathod= "post">
         {% csrf_token %}
-        <input type="text" name="Name" placeholder="Enter full name" required>
-       <input type = email name="username" placeholder="Enter user email" required>
+        <input type="text" name="first_name" placeholder="Enter firstname" required>
+        <input type="text" name="last_name" placeholder="Enter lastname" required>
+        <input type = email name="username" placeholder="Enter user email" required>
         <input type="password" name=" password" placeholder="password" required>
         <input type="password" name="confirm_password" placeholder="Confirm password" required>
         <button type="submit">Save</button>

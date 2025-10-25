@@ -3,13 +3,13 @@ from django.forms import forms
 
 # Create your models here.
 class Book(models.Model):
-      Book_name = models.CharField(max_length=100)
-      Author_name = models.CharField(max_length=100)
-      Description = models.TextField()
-      Publication_year = models.PositiveBigIntegerField()
+    book_name = models.CharField(max_length=100)
+    author_name = models.CharField(max_length=100)
+    description = models.TextField()
+    publication_year = models.PositiveBigIntegerField()
 
-    
-def __str__self():
-      return __str__self.bookname
+     
+
+
 
     

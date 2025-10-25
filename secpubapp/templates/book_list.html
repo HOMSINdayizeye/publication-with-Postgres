@@ -6,22 +6,36 @@
     <link rel="stylesheet" href="{% static 'secpubapp/liststyle.css' %}">
 </head>
 <body>
+     <section class="nav">
+            <a href="{% url 'add_book' %}">Add Book</a>
+            <a href="{% url 'book_list' %}">Book List</a>
+            <a href="#">Login</a>
+            <a href="{% url 'create_user' %}">Register</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Edit Book</a>
+            <a href="#">Delete Book</a>
+            <a href="#">Search Books</a>
+            <a href="#">Reset Password</a>
+        </section>
     <div class="book-list-container">
         <h1>Books</h1>
         <ul class="book-list">
             {% for book in books %}
                 <li>
                     <span>
-                        <strong>{{ book.Book_name }}</strong> by {{ book.Author_name }}<br>
-                        <em>{{ book.Description }}</em> ({{ book.Publication_year }})
+                        <strong>{{ book.book_name }}</strong> by {{ book.author_name }}<br>
+                        <em>{{ book.description }}</em> ({{ book.publication_year }})
                     </span>
                     <form action="{% url 'delete_book' book.pk %}" method="post" style="display:inline;">
                         {% csrf_token %}
                         <button type="submit" class="delete-btn">Delete</button>
                     </form>
-                    <form action="{% url 'edit_book' book.pk %}" method="post" style="display: inline;">
+                    <form action="{% url 'edit_book' book.pk %}" method="post" dislay="inline;">
                     {% csrf_token %}
-                    <button type = "submit" class="edit_button">Edit</button>
+                    <a href="{% url 'edit_book' book.pk %}" class="edit_link">Edit</a>
+
                     </form>
                 </li>
             {% empty %}
