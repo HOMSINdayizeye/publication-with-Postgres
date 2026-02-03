@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .forms import CustomUserCreationForm
 
 
-# Create your views here
+#  views here
 def add_book(request):
     if request.method == 'POST':
         form = FormBook(request.POST)
